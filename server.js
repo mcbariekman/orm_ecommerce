@@ -1,6 +1,6 @@
 // Import necessary modules and configure the environment
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./Develop/routes');
 // import sequelize connection
 
 // Create a new Express app
