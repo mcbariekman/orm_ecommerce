@@ -20,4 +20,10 @@ Product.init(
   }
 );
 
+// set up associations
+const Category = require('./Category');
+
+// adding foreign key
+Product.belongsTo(Category, { foreignKey: 'category_id' });
+
 module.exports = Product;
