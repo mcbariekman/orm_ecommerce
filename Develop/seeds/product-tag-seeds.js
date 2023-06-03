@@ -51,6 +51,25 @@ const productTagData = [
   },
 ];
 
-const seedProductTags = () => ProductTag.bulkCreate(productTagData);
+const seedProductTags = async () => {
+  try {
+    // Bulk create the initial product tags
+    await ProductTag.bulkCreate(productTagData);
+
+    // Updating a product tag
+    const productTagToUpdate = await ProductTag.findOne({
+      where: { product_id: 1, tag_id: 7 },
+    });
+
+    if (productTagToUpdate) {
+      // Update the tag_id value
+      productTagToUpdate.tag_id = 9;
+      await productTagToUpdate.save();
+      console.log('Product tag updated successfully');
+    }
+  } catch (error) {
+    console.error('Failed to seed product tags:', error);
+  }
+};
 
 module.exports = seedProductTags;
