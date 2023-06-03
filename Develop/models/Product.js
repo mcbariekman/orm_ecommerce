@@ -3,8 +3,6 @@ const sequelize = require('../config/connection');
 
 class Product extends Model {}
 
-// Initialize Product model (table) by extending off Sequelize's Model class
-
 Product.init(
   {
     id: {
@@ -49,14 +47,5 @@ Product.init(
     modelName: 'product',
   }
 );
-
-// The init() method defines the columns (fields) for the Product model.
-// Each column is defined using an object with the following properties:
-// type: Specifies the data type of the column (e.g., DataTypes.STRING).
-// allowNull: Specifies whether the column allows null values.
-// primaryKey: Specifies whether the column is the primary key of the table.
-// autoIncrement: Specifies whether the column auto-increments for new records.
-// Additional validations can be specified using the validate property.
-// The second object passed to init() defines additional configurations for the model, such as the table name and underscored naming.
 
 module.exports = Product;
